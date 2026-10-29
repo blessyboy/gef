@@ -79,7 +79,7 @@ export function createHandler(fetchExternal = globalThis.fetch) {
     if (url.pathname === '/health' && request.method === 'GET') return reply(200, { ok: true });
     if (!['/api/contact', '/api/config'].includes(url.pathname)) return reply(404, { error: 'Not found.' });
     if (!allowed) return reply(403, { error: 'This website is not permitted to submit this form.' });
-    if (request.method === 'OPTIONS') return reply(204 === 204 ? 200 : 200, {}, {
+    if (request.method === 'OPTIONS') return reply(200, {}, {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '600'
     });
