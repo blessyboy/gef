@@ -27,5 +27,12 @@
     "description": "Inclusive FinTech Forum auditorium in Kigali; illustrative conference image",
     "width": 1200,
     "height": 720
+  },
+  "about_conference_photo": {
+    "image": "https://www.inclusivefintechforum.com/hubfs/IFF_2025-1200x720.png",
+    "source": "https://www.inclusivefintechforum.com/media-hub/latest-news/iff-2024-postponement-official-statement",
+    "description": "Inclusive FinTech Forum auditorium in Kigali; illustrative conference image",
+    "width": 1200,
+    "height": 720
   }
 }
