@@ -36,6 +36,9 @@ test('both pages preserve the same 22 speakers, original order, and unchanged fi
         assert.ok(card.querySelector('img').alt); assert.ok(card.querySelector('.speaker-title'));
         assert.ok(card.querySelector('.speaker-organization')); assert.ok(card.querySelector('.speaker-category'));
         assert.equal(card.querySelector('button').hidden, false);
+        assert.equal(card.querySelector('button').textContent.trim(), '');
+        assert.equal(card.querySelector('button').querySelector('svg, span'), null);
+        assert.ok(card.querySelector('button').getAttribute('aria-label'));
       }
     } finally { p.dom.window.close(); }
   }

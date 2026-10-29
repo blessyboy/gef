@@ -25,8 +25,8 @@ def card(profile):
         f'<span class="speaker-category category-{p["category"].lower()}">{p["category"]}</span>'
         f'<h3>{p["name"]}</h3><p class="speaker-title">{p["title"]}</p>'
         f'<p class="speaker-organization">{organization}</p><button class="speaker-open" type="button" '
-        f'data-open-speaker="{p["slug"]}" aria-label="View profile: {p["name"]}" aria-haspopup="dialog" '
-        'aria-controls="speaker-dialog" hidden>View profile <span aria-hidden="true">&#8599;</span></button></div></article>'
+        f'data-open-speaker="{p["slug"]}" aria-label="Open speaker details: {p["name"]}" aria-haspopup="dialog" '
+        'aria-controls="speaker-dialog" hidden></button></div></article>'
     )
 
 
