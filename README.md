@@ -1,6 +1,6 @@
 # Ghana Economic Forum
 
-A responsive event website with four main pages and two information pages built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. No build or dependency installation is needed.
+A responsive event website with four main pages and two information pages built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. The frontend needs no build or dependency installation. The contact form uses a separately deployed Cloudflare Worker and Resend; see `backend/README.md`.
 
 ## Preview
 
@@ -18,7 +18,10 @@ Visit http://127.0.0.1:8080. Stop with Ctrl+C.
 - `index.html`: event introduction, themes, speaker preview, GH? 3,000 ticket, and FAQ.
 - `about.html`: history and purpose.
 - `speakers.html`: 22 speaker profiles, with accessible sector filters.
-- `contact.html`: telephone, email, map and registration links.
+- `contact.html`: accessible contact form, contact/social links and registration information.
+- `assets/js/contact.js`: validation, Turnstile, submission/loading/retry/success states.
+- `assets/js/contact-config.js`: public API origin (no credentials).
+- `backend/`: separate Worker API, Resend integration, abuse prevention and automated tests.
 - `assets/css/styles.css`: shared design tokens, responsive component styles and reduced-motion support.
 - `assets/js/main.js`: mobile navigation and speaker filters. Pages and links remain usable without JavaScript; all speakers display by default.
 - `assets/vendor/bootstrap.min.css`: locally served Bootstrap CSS, including original licence notice.
@@ -27,7 +30,7 @@ Shared page structures are deliberately plain HTML: `.site-header`, `.hero`, `.t
 
 ## Decisions and tradeoffs
 
-Static files are appropriate for this phase: inexpensive CDN hosting, no application server or database, no collected payment/contact data, and minimal operational complexity. Navigation/footer HTML is repeated across four files to keep each page independently usable. A future templating/build system can centralize it if the website expands. Bootstrap is local; custom CSS and a small script provide the design and interactions without jQuery or a Bootstrap JavaScript dependency.
+The frontend stays static for inexpensive CDN hosting. Contact submissions go through a separate Cloudflare Worker to Resend, with no application database or stored message cache. Payment processing stays external. Navigation/footer HTML is repeated across four files to keep each page independently usable. A future templating/build system can centralize it if the website expands. Bootstrap is local; custom CSS and a small script provide the design and interactions without jQuery or a Bootstrap JavaScript dependency.
 
 Registration links point to https://epay.thebftonline.com (correcting the supplied `httpe://` typo); the address returned HTTP 200 during implementation. Payment processing stays with the external provider. No checkout transaction has been tested.
 
@@ -39,7 +42,7 @@ Before release, confirm the event date, venue, speaker lineup/roles, ticket incl
 
 ## Hosting and production
 
-Deploy the frontend directory to a static host over HTTPS. Publish only the four HTML files and `assets/`. No backend deployment is required in this phase. A future contact API should deploy separately and require server-side validation, rate limits, spam controls, restricted CORS and consent/retention policies. Do not add a form that reports success without a real delivery service.
+Deploy the six HTML pages and `assets/` to the existing static host over HTTPS. Deploy `backend/` separately as a Cloudflare Worker. Configure Resend/Turnstile secrets only in the backend; set the public API origin in `assets/js/contact-config.js` after deployment. See `backend/README.md` for exact setup commands, security decisions, API contract and release checks. The form is intentionally unavailable until configured and never reports a fake success.
 
 Use short cache lifetimes for HTML, cache local assets with revalidation, and add versioned asset names before enabling immutable caching. Configure `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and a CSP allowing self-hosted scripts/styles/images (the contact page currently has two inline style attributes). Prefer CSP response headers; allow only the external destinations actually needed. Enable HSTS after HTTPS/domain verification. No secrets belong in this repository.
 
@@ -47,7 +50,7 @@ For CI, validate local links/assets and JavaScript syntax on each change, then d
 
 ## Validation
 
-Run `python tools/validate.py` and `node --check assets/js/main.js`. Browser automation was unavailable in this session; responsive visual behavior and interactive keyboard behavior still require browser QA before production release.
+Run `python tools/validate.py`, `node --check assets/js/main.js`, and `npm.cmd test` from `backend`. The contact API and frontend behavior have 20 automated tests using mocked external services; the Worker deployment dry run passed. Actual email delivery has not been tested or configured. Browser automation was unavailable in this session; responsive visual behavior and interactive keyboard behavior still require browser QA before production release.
 
 The homepage background uses a 1200 x 720 illustrative photograph of the Inclusive FinTech Forum auditorium in Kigali, sourced directly from the conference organiser. Its source is recorded in `asset-sources.json`. The green gradient overlay preserves text contrast.
 
@@ -56,3 +59,9 @@ The homepage background uses a 1200 x 720 illustrative photograph of the Inclusi
 All six pages share the same `.premium-footer` markup and scoped responsive CSS. The container is limited to 1200px; the grid uses four columns on desktop, two on tablet, and a centered single column on mobile. The logo keeps its natural aspect ratio. Contact icons and social symbols are inline SVGs, with accessible link names and no external icon dependency. Hover transitions respect reduced-motion preferences.
 
 The footer Programme link targets the homepage programme overview. Privacy and Terms links open `privacy.html` and `terms.html`. Social links use B&FT channels. Per the user?s instruction, there are no working hours or newsletter subscription elements.
+
+## Contact form activation
+
+The premium Contact Us section is implemented locally. It uses explicit labels, field-level validation, accessible status feedback, responsive single/two-column layouts, and preserved values after errors. Privacy text now describes contact submissions and the Cloudflare/Resend processing path. No hours or newsletter were introduced.
+
+Live email is pending configuration, not complete: verify your domain in Resend, configure a managed Turnstile widget, save backend secrets, deploy the Worker, set its public origin in `assets/js/contact-config.js`, and deploy the static frontend. See `backend/README.md`. A successful API response confirms provider acceptance, not eventual inbox delivery. Verify a live message with the receiving inbox owner before release.
