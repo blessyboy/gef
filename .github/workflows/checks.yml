@@ -15,4 +15,5 @@ jobs:
           python-version: '3.12'
       - run: python tools/validate.py
       - run: node --check assets/js/main.js && node --check assets/js/contact.js && node --check assets/js/contact-config.js
+      - run: npm ci --prefix backend
       - run: node --test backend/test/*.test.js

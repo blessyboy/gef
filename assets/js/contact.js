@@ -111,13 +111,15 @@
       if (!response.ok || result.ok !== true) {
         if (result.fields) for (const name of names) if (typeof result.fields[name] === 'string') { serverErrors.set(name, result.fields[name]); fieldError(name, result.fields[name]); }
         const fallback = response.status === 429 ? 'Too many attempts. Please wait a minute and try again.' : 'We could not send your message. Please try again or email the team directly.';
-        throw new Error(typeof result.error === 'string' ? result.error : fallback);
+        const failure = new Error(typeof result.error === 'string' ? result.error : fallback);
+        failure.name = 'ContactSubmissionError';
+        throw failure;
       }
       form.reset(); touched.clear(); serverErrors.clear(); names.forEach(name => fieldError(name, ''));
       submissionId = crypto.randomUUID();
       message('Thank you for contacting the Ghana Economic Forum. Our team will respond shortly.', 'success', true);
     } catch (error) {
-      message(error.name === 'TimeoutError' || error instanceof TypeError ? 'We could not confirm sending. Your message is preserved. Please retry, or email us directly.' : error.message, 'error', true);
+      message(error.name === 'ContactSubmissionError' ? error.message : 'We could not confirm sending. Your message is preserved. Please retry, or email us directly.', 'error', true);
     } finally {
       sending = false; form.setAttribute('aria-busy', 'false');
       names.forEach(name => { inputs[name].readOnly = false; });
