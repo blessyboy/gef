@@ -27,3 +27,5 @@
 .portrait.frame-richmond-frimpong img{position:absolute;max-width:none;width:595.26316%;height:auto;left:-68.42105%;top:-467.83626%;object-fit:initial;object-position:initial;}
 .portrait.frame-edward-obeng-kenzo img{position:absolute;max-width:none;width:595.26316%;height:auto;left:-186.84211%;top:-467.83626%;object-fit:initial;object-position:initial;}
 .portrait.frame-emmanuel-adekahlor img{position:absolute;max-width:none;width:595.26316%;height:auto;left:-303.68421%;top:-467.83626%;object-fit:initial;object-position:initial;}
+
+.invitation-notice{font-size:12px;letter-spacing:1.5px;font-weight:700;color:var(--gold)!important;margin:16px 0 0}.hero-invitation{margin:0 0 22px}
