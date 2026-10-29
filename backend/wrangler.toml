@@ -1,0 +1,23 @@
+name = "gef-contact-api"
+main = "src/index.js"
+compatibility_date = "2026-10-29"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://ghanaeconomicforum.com,https://www.ghanaeconomicforum.com"
+# Replace with a sender on your Resend-verified domain before deployment.
+MAIL_FROM = "Ghana Economic Forum <contact@ghanaeconomicforum.com>"
+# Add your public Turnstile site key here; configure both website hostnames in Turnstile.
+TURNSTILE_SITE_KEY = ""
+
+[[ratelimits]]
+name = "CONTACT_RATE_LIMITER"
+namespace_id = "10429"
+simple = { limit = 5, period = 60 }
+
+[observability]
+enabled = true
+# Request bodies, email addresses and message text are never logged by application code.
+
+# Store RESEND_API_KEY and TURNSTILE_SECRET_KEY via `wrangler secret put`.
+# Keep the backend independent of the frontend's static hosting.
