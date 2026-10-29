@@ -15,7 +15,7 @@ class Page(HTMLParser):
   for key in ['href','src']:
    if a.get(key):self.refs.append(a[key])
 pages={}
-for name in ['index.html','about.html','speakers.html','contact.html','privacy.html','terms.html']:
+for name in [p.name for p in sorted(root.glob('*.html'))]:
  p=Page(root/name);p.feed(p.path.read_text(encoding='utf-8'));pages[name]=p
 errors=[]
 for name,p in pages.items():
@@ -29,4 +29,4 @@ for name,p in pages.items():
   if u.fragment and target.name in pages and u.fragment not in pages[target.name].ids:errors.append(name+': missing fragment '+ref)
  assert 'https://epay.thebftonline.com' in p.path.read_text(encoding='utf-8')
 if errors:raise SystemExit('\n'.join(errors))
-print('PASS: 6 pages; local links, fragments, scripts, styles and images exist; one h1 per page; all images have alt attributes; registration present.')
+print(f'PASS: {len(pages)} pages; local links, fragments, scripts, styles and images exist; one h1 per page; all images have alt attributes; registration present.')

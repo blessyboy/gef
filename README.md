@@ -1,6 +1,6 @@
 # Ghana Economic Forum
 
-A responsive event website with four main pages and two information pages built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. The frontend needs no build or dependency installation. The contact form uses a separately deployed Cloudflare Worker and Resend; see `backend/README.md`.
+A responsive event website with seven main/content pages and two information pages built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. The frontend needs no build or dependency installation. The contact form uses a separately deployed Cloudflare Worker and Resend; see `backend/README.md`.
 
 ## Preview
 
@@ -42,7 +42,7 @@ Before release, confirm the event date, venue, speaker lineup/roles, ticket incl
 
 ## Hosting and production
 
-Deploy the six HTML pages and `assets/` to the existing static host over HTTPS. Deploy `backend/` separately as a Cloudflare Worker. Configure Resend/Turnstile secrets only in the backend; set the public API origin in `assets/js/contact-config.js` after deployment. See `backend/README.md` for exact setup commands, security decisions, API contract and release checks. The form is intentionally unavailable until configured and never reports a fake success.
+Deploy the nine HTML pages and `assets/` to the existing static host over HTTPS. Deploy `backend/` separately as a Cloudflare Worker. Configure Resend/Turnstile secrets only in the backend; set the public API origin in `assets/js/contact-config.js` after deployment. See `backend/README.md` for exact setup commands, security decisions, API contract and release checks. The form is intentionally unavailable until configured and never reports a fake success.
 
 Use short cache lifetimes for HTML, cache local assets with revalidation, and add versioned asset names before enabling immutable caching. Configure `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, and a CSP allowing self-hosted scripts/styles/images (the contact page currently has two inline style attributes). Prefer CSP response headers; allow only the external destinations actually needed. Enable HSTS after HTTPS/domain verification. No secrets belong in this repository.
 
@@ -56,7 +56,7 @@ The homepage background uses a 1200 x 720 illustrative photograph of the Inclusi
 
 ## Shared footer
 
-All six pages share the same `.premium-footer` markup and scoped responsive CSS. The container is limited to 1200px; the grid uses four columns on desktop, two on tablet, and a centered single column on mobile. The logo keeps its natural aspect ratio. Contact icons and social symbols are inline SVGs, with accessible link names and no external icon dependency. Hover transitions respect reduced-motion preferences.
+All nine pages share the same `.premium-footer` markup and scoped responsive CSS. The container is limited to 1200px; the grid uses four columns on desktop, two on tablet, and a centered single column on mobile. The logo keeps its natural aspect ratio. Contact icons and social symbols are inline SVGs, with accessible link names and no external icon dependency. Hover transitions respect reduced-motion preferences.
 
 The footer Programme link targets the homepage programme overview. Privacy and Terms links open `privacy.html` and `terms.html`. Social links use B&FT channels. Per the user?s instruction, there are no working hours or newsletter subscription elements.
 
@@ -83,3 +83,7 @@ Profile dialogs use the native modal dialog API for focus containment and Escape
 Deploy `index.html`, `speakers.html`, `assets/css/speakers.css`, and `assets/js/speakers.js` together, retaining existing speaker assets and shared styles. The new CSS and script use content-versioned URLs to avoid the previously observed stale stylesheet problem.
 
 Speaker cards now use compact content padding with no reserved name/title height and no visible profile link or arrow. A native, labelled button covers the card without consuming layout space, preserving keyboard access to profile dialogs. Badge, name, job title and organization remain in order. Grid rows keep cards equal in height without distributing unnecessary gaps between details.
+
+## GEF 2026 Concept Note content refresh
+
+The website copy and SEO metadata reflect the supplied Concept Note. New content pages are `programme.html`, `energy-day.html` and `investment-marketplace.html`, reusing existing page styles, navigation and footer. They are linked from the homepage programme overview. No CSS/JavaScript or existing navigation header was changed for this content update. See `docs/gef-2026-content-update.md` for source mapping and validation. Publish all nine HTML pages together; existing assets remain required.

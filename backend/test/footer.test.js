@@ -10,7 +10,7 @@ test('all pages load matching versioned footer CSS and bound icons even without 
   const stylesheet = await readFile(new URL('../../assets/css/footer.css', import.meta.url));
   const version = createHash('sha256').update(stylesheet).digest('hex').slice(0, 12);
   let reference;
-  for (const page of ['index', 'about', 'speakers', 'contact', 'privacy', 'terms']) {
+  for (const page of ['index', 'about', 'speakers', 'contact', 'privacy', 'terms', 'programme', 'energy-day', 'investment-marketplace']) {
     const markup = await readFile(new URL(`../../${page}.html`, import.meta.url), 'utf8');
     const dom = new JSDOM(markup);
     try {
