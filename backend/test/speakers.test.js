@@ -19,13 +19,13 @@ async function page(name = 'speakers', dialogSupport = true) {
   return { dom, window, document: window.document, dialog };
 }
 
-test('both pages preserve the same 22 speakers, original order, and unchanged first portrait', async () => {
+test('both pages preserve the same current speakers, original order, and unchanged first portrait', async () => {
   let reference;
   for (const name of ['index', 'speakers']) {
     const p = await page(name);
     try {
       const cards = [...p.document.querySelectorAll('.speaker-card')];
-      assert.equal(cards.length, 22);
+      assert.equal(cards.length, profiles.length);
       assert.deepEqual(cards.map(card => card.dataset.speaker), profiles.map(profile => profile.slug));
       assert.equal(cards[0].querySelector('h3').textContent, 'John Dramani Mahama');
       assert.equal(cards[0].querySelector('img').getAttribute('src'), 'assets/john-dramani-mahama.png');
@@ -73,14 +73,14 @@ test('filters update visible cards, pressed state and announcement without remov
     assert.equal(p.document.querySelectorAll('[data-speaker-filter][aria-pressed="true"]').length, 1);
     assert.match(p.document.getElementById('speaker-result-count').textContent, /Energy/);
     p.document.querySelector('[data-speaker-filter="All"]').click();
-    assert.equal([...p.document.querySelectorAll('.speaker-card')].filter(card => !card.hidden).length, 22);
+    assert.equal([...p.document.querySelectorAll('.speaker-card')].filter(card => !card.hidden).length, profiles.length);
   } finally { p.dom.window.close(); }
 });
 
 test('unsupported dialog API leaves static speaker content without dead profile buttons', async () => {
   const p = await page('speakers', false);
   try {
-    assert.equal(p.document.querySelectorAll('.speaker-card').length, 22);
+    assert.equal(p.document.querySelectorAll('.speaker-card').length, profiles.length);
     assert.ok([...p.document.querySelectorAll('.speaker-open')].every(button => button.hidden));
   } finally { p.dom.window.close(); }
 });
