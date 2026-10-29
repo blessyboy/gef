@@ -1,6 +1,6 @@
 # Ghana Economic Forum
 
-A four-page, responsive event website built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. No build or dependency installation is needed.
+A responsive event website with four main pages and two information pages built with HTML, CSS, Bootstrap 4.1.3 and small vanilla JavaScript enhancements. No build or dependency installation is needed.
 
 ## Preview
 
@@ -50,3 +50,9 @@ For CI, validate local links/assets and JavaScript syntax on each change, then d
 Run `python tools/validate.py` and `node --check assets/js/main.js`. Browser automation was unavailable in this session; responsive visual behavior and interactive keyboard behavior still require browser QA before production release.
 
 The homepage background uses a 1200 x 720 illustrative photograph of the Inclusive FinTech Forum auditorium in Kigali, sourced directly from the conference organiser. Its source is recorded in `asset-sources.json`. The green gradient overlay preserves text contrast.
+
+## Shared footer
+
+All six pages share the same `.premium-footer` markup and scoped responsive CSS. The container is limited to 1200px; the grid uses four columns on desktop, two on tablet, and a centered single column on mobile. The logo keeps its natural aspect ratio. Contact icons and social symbols are inline SVGs, with accessible link names and no external icon dependency. Hover transitions respect reduced-motion preferences.
+
+The footer Programme link targets the homepage programme overview. Privacy and Terms links open `privacy.html` and `terms.html`. Social links use B&FT channels. Per the user?s instruction, there are no working hours or newsletter subscription elements.
