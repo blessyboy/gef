@@ -65,3 +65,9 @@ The footer Programme link targets the homepage programme overview. Privacy and T
 The premium Contact Us section is implemented locally. It uses explicit labels, field-level validation, accessible status feedback, responsive single/two-column layouts, and preserved values after errors. Privacy text now describes contact submissions and the Cloudflare/Resend processing path. No hours or newsletter were introduced.
 
 Live email is pending configuration, not complete: verify your domain in Resend, configure a managed Turnstile widget, save backend secrets, deploy the Worker, set its public origin in `assets/js/contact-config.js`, and deploy the static frontend. See `backend/README.md`. A successful API response confirms provider acceptance, not eventual inbox delivery. Verify a live message with the receiving inbox owner before release.
+
+## Footer stylesheet deployment
+
+The footer styles live in `assets/css/footer.css`, loaded independently on all six pages with a content-hash query version. Shared and Contact styles also use versioned URLs to avoid old cached CSS after publishing. Deploy all six HTML files and the CSS files together; publishing only HTML leaves new markup paired with old styles. The live site was observed serving an old 16,423-character shared stylesheet with a four-hour cache lifetime while serving newer footer HTML. Inline SVG dimensions now provide safe fallback sizing even if CSS fails.
+
+Run `npm.cmd test` in `backend` for the footer regression check: it verifies matching stylesheet versions across every page and safe icon/logo dimensions without CSS. This check does not establish responsive visual rendering; browser QA remains required at phone, tablet, desktop and browser zoom sizes.
