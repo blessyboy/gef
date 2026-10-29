@@ -48,3 +48,5 @@ For CI, validate local links/assets and JavaScript syntax on each change, then d
 ## Validation
 
 Run `python tools/validate.py` and `node --check assets/js/main.js`. Browser automation was unavailable in this session; responsive visual behavior and interactive keyboard behavior still require browser QA before production release.
+
+The homepage background uses a 1200 x 720 illustrative photograph of the Inclusive FinTech Forum auditorium in Kigali, sourced directly from the conference organiser. Its source is recorded in `asset-sources.json`. The green gradient overlay preserves text contrast.

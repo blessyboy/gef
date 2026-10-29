@@ -29,3 +29,24 @@
 .portrait.frame-emmanuel-adekahlor img{position:absolute;max-width:none;width:595.26316%;height:auto;left:-303.68421%;top:-467.83626%;object-fit:initial;object-position:initial;}
 
 .invitation-notice{font-size:12px;letter-spacing:1.5px;font-weight:700;color:var(--gold)!important;margin:16px 0 0}.hero-invitation{margin:0 0 22px}
+
+/* Homepage introduction: 55/45 editorial grid with a mobile-first reading order. */
+.conversation{padding:64px 0 56px}
+.conversation-grid{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);grid-template-areas:"heading description" "action statistic";column-gap:56px;row-gap:28px;align-items:center}
+.conversation-heading{grid-area:heading}
+.conversation .eyebrow{color:#577260;margin-bottom:20px}
+.conversation h2{font-size:clamp(40px,4.2vw,58px);font-weight:500;line-height:1.08;letter-spacing:-2.2px;max-width:590px;margin:0;text-wrap:balance}
+.conversation h2 span{color:#416b54}
+.conversation-description{grid-area:description;color:var(--muted);font-size:18px;line-height:1.75}
+.conversation-description p{margin:0 0 18px}
+.conversation-description p:last-child{margin-bottom:0}
+.conversation-stat{grid-area:statistic;display:flex;align-items:center;gap:24px;padding:24px 28px;border:1px solid #dce4d7;border-left:4px solid var(--green);border-radius:12px;background:linear-gradient(120deg,#edf2e7,#f2f4ed);box-shadow:0 8px 24px rgba(18,62,50,.07)}
+.conversation-stat strong{font-size:64px;line-height:1;letter-spacing:-3px;font-weight:600;color:var(--green);flex-shrink:0}
+.conversation-stat>span{font-size:15px;line-height:1.55;color:#496251;max-width:215px}
+.conversation-action{grid-area:action;align-self:start;padding-top:5px}
+.conversation-action .btn{padding:17px 25px;gap:30px;box-shadow:0 4px 12px #123e3210}
+.conversation+.topics{padding-top:64px}
+@media(min-width:1400px){.conversation-grid{column-gap:64px}}
+@media(min-width:768px) and (max-width:991px){.conversation{padding:52px 0 48px}.conversation-grid{column-gap:32px;row-gap:26px}.conversation h2{font-size:42px;letter-spacing:-1.7px}.conversation-description{font-size:17px;line-height:1.7}.conversation-stat{padding:22px 20px;gap:18px}.conversation-stat strong{font-size:52px}.conversation-stat>span{font-size:13px}}
+@media(max-width:767px){.conversation{padding:44px 0 42px}.conversation-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"heading" "description" "statistic" "action";gap:24px}.conversation h2{font-size:clamp(36px,8vw,46px);letter-spacing:-1.7px;max-width:540px}.conversation .eyebrow{margin-bottom:18px}.conversation-description{font-size:17px;line-height:1.75}.conversation-description p{margin-bottom:16px}.conversation-stat{gap:23px;padding:23px 24px}.conversation-stat strong{font-size:58px}.conversation-stat>span{font-size:14px;max-width:220px}.conversation-action{padding-top:4px}.conversation+.topics{padding-top:48px}}
+@media(max-width:359px){.conversation-stat{gap:16px;padding:20px 16px}.conversation-stat strong{font-size:49px}.conversation-stat>span{font-size:13px}}
