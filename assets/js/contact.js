@@ -8,6 +8,7 @@
   const names = ['fullName', 'email', 'phone', 'company', 'subject', 'message'];
   const inputs = Object.fromEntries(names.map(name => [name, form.elements.namedItem(name)]));
   const touched = new Set();
+  const serverErrors = new Map();
   let sending = false, ready = false, token = '', widgetId;
   let submissionId = crypto.randomUUID?.() || '';
   let api;
@@ -33,7 +34,7 @@
   function update() {
     let valid = true;
     for (const name of names) {
-      const error = errorFor(name);
+      const error = serverErrors.get(name) || errorFor(name);
       if (error) valid = false;
       if (touched.has(name)) fieldError(name, error);
     }
@@ -41,7 +42,7 @@
   }
   for (const name of names) {
     inputs[name].addEventListener('blur', () => { touched.add(name); update(); });
-    inputs[name].addEventListener('input', update);
+    inputs[name].addEventListener('input', () => { serverErrors.delete(name); update(); });
   }
   function resetVerification() {
     token = '';
@@ -71,7 +72,7 @@
         window.turnstile.ready(() => {
           widgetId = window.turnstile.render('#contact-verification', {
             sitekey: config.turnstileSiteKey, action: 'contact', theme: 'light', size: 'flexible',
-            callback(value) { token = value; ready = true; message('Complete the required fields to send your message.'); update(); },
+            callback(value) { token = value; ready = true; if (status.classList.contains('is-info')) message('Complete the required fields to send your message.'); update(); },
             'expired-callback'() { token = ''; message('Please complete the security check again.'); update(); },
             'error-callback'() { token = ''; message('Please retry the security check or email us directly.', 'error'); update(); }
           });
@@ -87,7 +88,7 @@
     event.preventDefault();
     if (sending) return;
     names.forEach(name => touched.add(name)); update();
-    const invalid = names.find(name => errorFor(name));
+    const invalid = names.find(name => serverErrors.has(name) || errorFor(name));
     if (invalid) { inputs[invalid].focus(); return; }
     if (!ready || !token || !api) { message('Please complete the security check before sending.', 'error', true); return; }
     sending = true; update();
@@ -108,11 +109,11 @@
       });
       const result = await response.json();
       if (!response.ok || result.ok !== true) {
-        if (result.fields) for (const name of names) if (typeof result.fields[name] === 'string') fieldError(name, result.fields[name]);
+        if (result.fields) for (const name of names) if (typeof result.fields[name] === 'string') { serverErrors.set(name, result.fields[name]); fieldError(name, result.fields[name]); }
         const fallback = response.status === 429 ? 'Too many attempts. Please wait a minute and try again.' : 'We could not send your message. Please try again or email the team directly.';
         throw new Error(typeof result.error === 'string' ? result.error : fallback);
       }
-      form.reset(); touched.clear(); names.forEach(name => fieldError(name, ''));
+      form.reset(); touched.clear(); serverErrors.clear(); names.forEach(name => fieldError(name, ''));
       submissionId = crypto.randomUUID();
       message('Thank you for contacting the Ghana Economic Forum. Our team will respond shortly.', 'success', true);
     } catch (error) {
