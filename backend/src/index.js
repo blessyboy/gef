@@ -1,6 +1,6 @@
 const RECIPIENT = 'info@ghanaeconomicforum.com';
 const MAX_BYTES = 16384;
-const SINGLE_LINE_CONTROLS = /[\u0000-\u001f\u007f]/;
+const SINGLE_LINE_CONTROLS = /[\u0000-\u001f\u007f\u2028\u2029]/;
 const EMAIL = /^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -66,7 +66,8 @@ export function createHandler(fetchExternal = globalThis.fetch) {
     const requestId = crypto.randomUUID();
     const url = new URL(request.url);
     const allowedOrigins = (env.ALLOWED_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean);
-    const origin = request.headers.get('Origin');
+    const origin = request.headers.get('Origin') ||
+      (request.method === 'GET' && url.pathname === '/api/config' && allowedOrigins.includes(url.origin) ? url.origin : null);
     const allowed = Boolean(origin && allowedOrigins.includes(origin));
     const headers = {
       'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store',
