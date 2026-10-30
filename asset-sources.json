@@ -37,23 +37,22 @@
   },
   "hero_slides": [
     {
-      "file": "assets/hero/presidential-leadership.jpg",
+      "file": "assets/hero/presidential-leadership-clean.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:Japan-Ghana_Summit_Meeting_on_August_20,_2025.jpg",
       "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Japan-Ghana_Summit_Meeting_on_August_20%2C_2025.jpg",
       "creator": "Cabinet Public Relations Office of the Cabinet Secretariat, Japan",
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "description": "John Dramani Mahama and Shigeru Ishiba at the Japan-Ghana summit, 20 August 2025, during TICAD 9. Contextual leadership photograph, not a GEF 2026 event photograph.",
-      "changes": "Resized from 2600 x 1734 to 2000 x 1334; JPEG optimized; CSS display crop, dark overlay and cinematic zoom.",
-      "attribution": "Visible on the first slide; source and licence links included."
+      "changes": "AI-assisted removal of TICAD/YOKOHAMA/2025 backdrop lettering; JPEG compression; display crop, overlay and zoom.",
+      "attribution": "privacy.html#photo-credits, linked from every footer."
     },
     {
-      "file": "assets/hero/investment-meeting.jpg",
-      "source": "https://pbs.twimg.com/media/HHFFf5VaAAACcco.jpg?format=jpg&name=orig",
-      "source_page": "https://x.com/MoF_Ghana",
-      "description": "Illustrative official Ghana Ministry of Finance meeting photograph; not a GEF event photograph.",
-      "width": 1280,
-      "height": 854
+      "file": "assets/hero/slider2.jpeg",
+      "source": "User-provided slider2.jpeg",
+      "description": "User-supplied conference audience photograph for the second hero slide.",
+      "width": 726,
+      "height": 481
     },
     {
       "file": "assets/hero/industry.jpg",

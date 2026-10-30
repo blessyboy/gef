@@ -105,3 +105,5 @@ Seven DOM/controller tests cover the three-slide structure, four-second infinite
 ### Presidential leadership slide
 
 The first slide features John Dramani Mahama at the Japan-Ghana summit during TICAD 9 on 20 August 2025. The photograph is credited to the Cabinet Public Relations Office of the Cabinet Secretariat, Japan, and listed under CC BY 4.0 on its Wikimedia Commons source page. Visible source/licence attribution and a modification notice are included on the slide. The local derivative is 2000 x 1334, approximately 199 KiB. CSS applies the display crop, overlay and zoom; the photo is not presented as a GEF 2026 event photograph. The source, creator, licence and changes are recorded in `asset-sources.json`. The other two slides and four-second interval remain unchanged.
+
+The presidential hero now uses `presidential-leadership-clean.jpg`, with backdrop event lettering removed using AI-assisted editing. Visible slide attribution has moved to `privacy.html#photo-credits`, linked from all footers; source, licence and editing disclosure are preserved there.
