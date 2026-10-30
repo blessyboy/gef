@@ -83,9 +83,6 @@
   motion.addEventListener('change', event => { if (event.matches) userPaused = true; sync(); });
   if ('IntersectionObserver' in window) new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); }, { threshold: .05 }).observe(hero);
 
-  // The transparent homepage header becomes solid once the visitor scrolls.
   document.body.classList.add('hero-slider-ready');
-  const headerState = () => document.body.classList.toggle('header-is-solid', window.scrollY > 30);
-  window.addEventListener('scroll', headerState, { passive: true }); headerState();
   sync();
 })();

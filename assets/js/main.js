@@ -30,3 +30,8 @@ if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'fu
   }, { threshold: 0.12 });
   conversationItems.forEach(item => conversationObserver.observe(item));
 }
+
+// Shared sticky white header state, including pages without the hero slider.
+const updateHeaderScrollState = () => document.body.classList.toggle('header-is-scrolled', window.scrollY > 30);
+window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
+updateHeaderScrollState();

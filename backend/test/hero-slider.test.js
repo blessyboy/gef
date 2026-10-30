@@ -5,6 +5,7 @@ import { JSDOM } from 'jsdom';
 
 const html = await readFile(new URL('../../index.html', import.meta.url), 'utf8');
 const script = await readFile(new URL('../../assets/js/hero-slider.js', import.meta.url), 'utf8');
+const sharedScript = await readFile(new URL('../../assets/js/main.js', import.meta.url), 'utf8');
 const settle = () => new Promise(resolve => setTimeout(resolve, 0));
 function setup(reduced = false) {
   const dom = new JSDOM(html, { runScripts: 'outside-only', url: 'https://ghanaeconomicforum.com/', pretendToBeVisual: true });
@@ -13,6 +14,7 @@ function setup(reduced = false) {
   window.requestAnimationFrame = callback => { callbacks.set(++frameId, callback); return frameId; };
   window.cancelAnimationFrame = id => callbacks.delete(id);
   window.matchMedia = () => ({ matches: reduced, addEventListener() {} });
+  window.eval(sharedScript);
   window.eval(script);
   function advance(time) { const pending = [...callbacks.values()]; callbacks.clear(); pending.forEach(callback => callback(time)); }
   const hero = document.getElementById('gef-hero');
@@ -84,12 +86,12 @@ test('horizontal touch swipe changes slides; vertical gestures preserve scrollin
   } finally { s.dom.window.close(); }
 });
 
-test('homepage header becomes solid on scroll without changing other pages', () => {
+test('shared header scroll state activates on scroll', () => {
   const s = setup();
   try {
     assert.equal(s.document.body.classList.contains('hero-slider-ready'), true);
-    assert.equal(s.document.body.classList.contains('header-is-solid'), false);
+    assert.equal(s.document.body.classList.contains('header-is-scrolled'), false);
     Object.defineProperty(s.window, 'scrollY', { value: 100, configurable: true });s.window.dispatchEvent(new s.window.Event('scroll'));
-    assert.equal(s.document.body.classList.contains('header-is-solid'), true);
+    assert.equal(s.document.body.classList.contains('header-is-scrolled'), true);
   } finally { s.dom.window.close(); }
 });
