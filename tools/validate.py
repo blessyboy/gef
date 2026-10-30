@@ -12,7 +12,7 @@ class Page(HTMLParser):
    self.ids.add(a['id'])
   if tag=='h1':self.h1+=1
   if tag=='img' and 'alt' not in a:self.errors.append('Image missing alt')
-  for key in ['href','src']:
+  for key in ['href','src','data-src']:
    if a.get(key):self.refs.append(a[key])
 pages={}
 for name in [p.name for p in sorted(root.glob('*.html'))]:

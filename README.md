@@ -87,3 +87,13 @@ Speaker cards now use compact content padding with no reserved name/title height
 ## GEF 2026 Concept Note content refresh
 
 The website copy and SEO metadata reflect the supplied Concept Note. New content pages are `programme.html`, `energy-day.html` and `investment-marketplace.html`, reusing existing page styles, navigation and footer. They are linked from the homepage programme overview. No CSS/JavaScript or existing navigation header was changed for this content update. See `docs/gef-2026-content-update.md` for source mapping and validation. Publish all nine HTML pages together; existing assets remain required.
+
+## Three-slide homepage hero
+
+The homepage uses exactly three slides: forum leadership, capital/partnerships, and industrial/energy growth. `assets/css/hero-slider.css` and `assets/js/hero-slider.js` are homepage-only and content-versioned. The native JavaScript controller fades slides, advances every six seconds, loops, supports arrows/dots/keyboard/swipe navigation, and displays progress with pause/play. It pauses on keyboard engagement, pointer hover, hidden tabs and when off-screen; explicit Play resumes after manual navigation. Reduced-motion visitors start paused and do not receive fades/zoom/reveal animations. They can explicitly choose automatic rotation.
+
+Only the first image has an eager high-priority source. Other images are loaded and decoded when requested, so the currently visible slide remains until the next is ready. The compressed images are self-hosted under `assets/hero/`, with source provenance in `asset-sources.json`. They are illustrative images, not claims about attendance at GEF 2026. Slide 2 uses a high-resolution partnership/handshake stock photograph; Slide 3 shows solar-powered industrial infrastructure in Ghana. Core Web Vitals have not been measured.
+
+The hero fills the viewport, with minimum heights on short screens to prevent clipped text/buttons. The homepage header becomes transparent only when the slider script initializes and turns solid on scroll. Other pages retain their existing header. Without JavaScript, the first slide, its CTA links and normal header remain usable; inactive slide links are outside the tab order. Manual slide changes are announced politely; automatic changes are not announced.
+
+Seven DOM/controller tests cover the three-slide structure, six-second infinite loop, manual navigation, inactive-link focus handling, reduced-motion startup, keyboard controls, horizontal-vs-vertical touch gestures and header scroll state. They do not verify rendered image crops, native mobile gestures or browser performance. Publish `index.html`, the new hero CSS/JS and all three `assets/hero/` images together.

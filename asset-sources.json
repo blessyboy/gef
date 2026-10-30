@@ -34,5 +34,22 @@
     "description": "Inclusive FinTech Forum auditorium in Kigali; illustrative conference image",
     "width": 1200,
     "height": 720
-  }
+  },
+  "hero_slides": [
+    {
+      "file": "assets/hero/conference.jpg",
+      "source": "https://www.inclusivefintechforum.com/hubfs/IFF_2025-1200x720.png",
+      "description": "Illustrative conference setting, Kigali. Not a photograph of GEF 2026."
+    },
+    {
+      "file": "assets/hero/investment.jpg",
+      "source": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
+      "description": "Illustrative stock partnership/handshake scene from Pexels."
+    },
+    {
+      "file": "assets/hero/industry.jpg",
+      "source": "https://www.infrafutura.com/assets/images/sliders/slide-2.jpg",
+      "description": "Illustrative Ghana industrial solar rooftop image."
+    }
+  ]
 }
