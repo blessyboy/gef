@@ -1,7 +1,7 @@
 /* Shared conference footer. Self-contained rules preserve all other site layouts. */
 
 .premium-footer{background:radial-gradient(ellipse at 0 0,rgba(81,125,92,.16),transparent 55%),linear-gradient(120deg,#123e32 0%,#092c24 65%,#08261f 100%);padding:50px 0 0;color:#c5d4cb;border-top:1px solid #ffffff10}
-.footer-container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-container{width:100%;max-width:var(--site-content-width,1160px);margin:0 auto;padding:0 24px}
 .premium-footer-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.7fr) minmax(0,1.3fr) minmax(0,1fr);gap:36px;padding-bottom:36px;align-items:start}
 .premium-footer h2{font-size:14px;font-weight:600;line-height:1.4;letter-spacing:.3px;color:#f1f4ee;margin:3px 0 19px}
 .premium-footer p{font-size:13px;line-height:1.8;color:#bfcec5;max-width:none;margin:0 0 17px}
