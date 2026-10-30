@@ -37,9 +37,15 @@
   },
   "hero_slides": [
     {
-      "file": "assets/hero/conference.jpg",
-      "source": "https://www.inclusivefintechforum.com/hubfs/IFF_2025-1200x720.png",
-      "description": "Illustrative conference setting, Kigali. Not a photograph of GEF 2026."
+      "file": "assets/hero/presidential-leadership.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Japan-Ghana_Summit_Meeting_on_August_20,_2025.jpg",
+      "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Japan-Ghana_Summit_Meeting_on_August_20%2C_2025.jpg",
+      "creator": "Cabinet Public Relations Office of the Cabinet Secretariat, Japan",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "description": "John Dramani Mahama and Shigeru Ishiba at the Japan-Ghana summit, 20 August 2025, during TICAD 9. Contextual leadership photograph, not a GEF 2026 event photograph.",
+      "changes": "Resized from 2600 x 1734 to 2000 x 1334; JPEG optimized; CSS display crop, dark overlay and cinematic zoom.",
+      "attribution": "Visible on the first slide; source and licence links included."
     },
     {
       "file": "assets/hero/investment-meeting.jpg",

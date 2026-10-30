@@ -55,3 +55,13 @@
 @media(max-width:767px){.hero-slider{min-height:780px}.hero-slide-inner{padding-top:145px;padding-bottom:165px}.hero-slider .hero-slide-title{font-size:clamp(42px,9vw,59px);letter-spacing:-1.8px;line-height:1.08;margin-bottom:20px}.hero-slide-eyebrow{font-size:9px;letter-spacing:1.6px;margin-bottom:20px}.hero-slide-subtitle{font-size:17px;line-height:1.7;margin-bottom:25px}.hero-slide-button{min-height:51px;font-size:12px;padding:14px 17px;gap:13px}.hero-slide-event{font-size:10px;margin-top:22px}.hero-slide-event span{padding:0 4px}.hero-slider-controls{grid-template-columns:1fr auto;gap:8px;bottom:23px}.hero-slide-progress{grid-column:1/-1;grid-row:2;margin:5px 0 0;gap:13px}.hero-progress-track{width:100%;flex:1}.hero-pagination{margin-left:-10px}.hero-transport{gap:6px}.hero-transport button{width:42px;height:42px}.hero-pagination button{width:39px;height:44px}.hero-slide-image{object-position:60% center}}
 @media(max-width:359px){.hero-slide-button{width:100%}.hero-slider{min-height:850px}.hero-slider .hero-slide-title{font-size:42px}.hero-transport{gap:5px}.hero-transport button{width:40px;height:42px}.hero-pagination button{width:34px}}
 @media(prefers-reduced-motion:reduce){.hero-slide,.hero-slide-image,.hero-slide-button,.hero-pagination button span,.hero-transport button{transition:none}.hero-slide.is-active .hero-slide-copy>*{animation:none}.hero-slide-image,.hero-slide.is-active .hero-slide-image{transform:none}.hero-slide-button:hover{transform:none}}
+
+/* Presidential leadership image: right-hand subject with left-aligned copy. */
+.hero-slide-presidential .hero-slide-image{object-position:73% 35%}
+.hero-slide-presidential .hero-slide-inner{padding-top:90px;padding-bottom:150px}
+.hero-slider .hero-slide-presidential .hero-slide-title{font-size:clamp(43px,4.4vw,62px);line-height:1.08}
+.hero-slide-presidential .hero-slide-eyebrow:before{height:3px;background:linear-gradient(90deg,#c49939 0 45%,#26764c 45% 100%)}
+.hero-photo-credit{position:absolute;right:28px;bottom:92px;max-width:325px;margin:0;padding:8px 10px;border-radius:6px;background:#00170f55;color:#e0e6d8;font-size:9px;line-height:1.6;text-align:right;z-index:2}
+.hero-photo-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.hero-photo-credit>span{display:block;font-size:8px;opacity:.85}
+@media(max-width:767px){.hero-slide-presidential .hero-slide-image{object-position:79% center}.hero-slide-presidential .hero-slide-inner{padding-top:80px;padding-bottom:210px}.hero-slider .hero-slide-presidential .hero-slide-title{font-size:clamp(40px,8.5vw,54px);letter-spacing:-1.6px}.hero-photo-credit{left:23px;right:23px;bottom:125px;max-width:none;text-align:left;font-size:8px;padding:7px 9px}}
