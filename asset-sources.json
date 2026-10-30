@@ -42,9 +42,12 @@
       "description": "Illustrative conference setting, Kigali. Not a photograph of GEF 2026."
     },
     {
-      "file": "assets/hero/investment.jpg",
-      "source": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-      "description": "Illustrative stock partnership/handshake scene from Pexels."
+      "file": "assets/hero/investment-meeting.jpg",
+      "source": "https://pbs.twimg.com/media/HHFFf5VaAAACcco.jpg?format=jpg&name=orig",
+      "source_page": "https://x.com/MoF_Ghana",
+      "description": "Illustrative official Ghana Ministry of Finance meeting photograph; not a GEF event photograph.",
+      "width": 1280,
+      "height": 854
     },
     {
       "file": "assets/hero/industry.jpg",
