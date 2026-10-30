@@ -10,7 +10,7 @@
   const count = hero.querySelector('.hero-slide-count');
   const status = document.getElementById('hero-slider-status');
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const interval = 6000;
+  const interval = 4000;
   let index = 0, elapsed = 0, previousTime = 0, frameId = 0, version = 0;
   let userPaused = motion.matches, hoverPaused = false, inView = true, loading = false;
   controls.hidden = false;

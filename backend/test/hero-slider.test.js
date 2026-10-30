@@ -33,13 +33,13 @@ test('exactly three slides, one h1, lazy inactive images and usable static first
   } finally { dom.window.close(); }
 });
 
-test('six-second automatic progression loops through all three slides', async () => {
+test('four-second automatic progression loops through all three slides', async () => {
   const s = setup();
   try {
-    assert.equal(s.current(), 0);s.advance(100);s.advance(6099);await settle();assert.equal(s.current(), 0);
-    s.advance(6100);await settle();assert.equal(s.current(), 1);
-    s.advance(6200);s.advance(12200);await settle();assert.equal(s.current(), 2);
-    s.advance(12300);s.advance(18300);await settle();assert.equal(s.current(), 0);
+    assert.equal(s.current(), 0);s.advance(100);s.advance(4099);await settle();assert.equal(s.current(), 0);
+    s.advance(4100);await settle();assert.equal(s.current(), 1);
+    s.advance(4200);s.advance(8200);await settle();assert.equal(s.current(), 2);
+    s.advance(8300);s.advance(12300);await settle();assert.equal(s.current(), 0);
   } finally { s.dom.window.close(); }
 });
 
