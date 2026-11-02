@@ -1,0 +1,24 @@
+.event-countdown{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(120deg,#0d352b,#174a36 55%,#0b3027);color:#f6f5e9;padding:55px 0 36px;border-top:1px solid #ffffff15;border-bottom:1px solid #ffffff15}
+.event-countdown:before{content:'';position:absolute;inset:-60%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 24% 30%,#bda26517,transparent 45%),radial-gradient(ellipse at 70% 60%,#80ac6518,transparent 42%);animation:countdown-ambient 20s ease-in-out infinite alternate}
+.countdown-inner{text-align:center;position:relative}
+.countdown-eyebrow{font-size:9px;font-weight:600;letter-spacing:2.6px;color:#d4bb7f;line-height:1.7;margin:0 0 16px}
+.event-countdown h2{font-size:clamp(29px,3.15vw,43px);font-weight:600;line-height:1.18;letter-spacing:-1.2px;max-width:800px;margin:0 auto 17px;text-wrap:balance;color:#f8f7ee}
+.countdown-event-details{font-size:15px;line-height:1.8;color:#cedcc9;letter-spacing:.2px;margin:0 0 17px}
+.countdown-event-details>span{color:#b69e63;padding:0 12px}
+.countdown-invitation{display:inline-flex;align-items:center;gap:9px;border:1px solid #d9bc7650;border-radius:30px;background:#d9bc760a;padding:8px 15px;min-height:34px;line-height:1.4;font-size:9px;font-weight:700;letter-spacing:1.8px;color:#e5c77f;margin-bottom:31px}
+.countdown-invitation>span{height:5px;width:5px;flex:0 0 5px;background:#dfbd6d;border-radius:50%;box-shadow:0 0 9px #dfbd6d55}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:800px;margin:0 auto}
+.countdown-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:24px 14px 21px;border:1px solid #ffffff26;border-radius:19px;background:linear-gradient(145deg,#ffffff0c,#ffffff03);box-shadow:0 8px 30px #0000000a,inset 0 1px 0 #ffffff0a;backdrop-filter:blur(8px);transition:transform 300ms,border-color 300ms,box-shadow 300ms}
+.countdown-card:before{content:'';position:absolute;top:0;left:35%;right:35%;height:1px;background:#e4c67d80}
+.countdown-card dd{order:-1;display:grid;place-items:center;width:100%;height:1.15em;margin:0 0 12px;font-size:clamp(44px,5.4vw,68px);font-weight:600;line-height:1.1;letter-spacing:-2px;color:#f0d28b;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum';white-space:nowrap}
+.countdown-card dd>span{display:block;min-width:2ch;text-align:center}
+.countdown-card dt{font-size:11px;line-height:1.5;text-transform:uppercase;letter-spacing:1.7px;font-weight:500;color:#c8d8c2}
+.countdown-status{min-height:36px;font-size:11px;line-height:1.8;letter-spacing:.3px;color:#b2c5a9;margin:23px 0 0}
+.event-countdown.is-started .countdown-status{color:#f0d28b;font-size:18px;font-weight:600;letter-spacing:0}
+.countdown-noscript{color:#cedcc9;font-size:13px;margin:12px 0 0}
+@media(hover:hover){.countdown-card:hover{transform:translateY(-4px);border-color:#e4c67d80;box-shadow:0 10px 30px #0002,0 0 24px #e4c67d0b,inset 0 1px 0 #ffffff13}}
+@keyframes countdown-ambient{from{transform:translate(-2%,-2%) rotate(-3deg)}to{transform:translate(3%,2%) rotate(4deg)}}
+@media(min-width:768px) and (max-width:991px){.event-countdown{padding-top:48px}.countdown-grid{max-width:720px;gap:14px}}
+@media(max-width:767px){.event-countdown{padding:39px 0 29px}.countdown-eyebrow{font-size:8px;letter-spacing:1.7px;margin-bottom:14px}.event-countdown h2{font-size:32px;letter-spacing:-1px;margin-bottom:15px}.countdown-event-details{font-size:13px;max-width:330px;margin:0 auto 16px}.countdown-event-details>span{padding:0 5px}.countdown-invitation{font-size:8px;letter-spacing:1.5px;margin-bottom:25px}.countdown-grid{gap:10px}.countdown-card{padding:20px 6px 17px;border-radius:15px}.countdown-card dd{font-size:clamp(30px,8.2vw,48px);letter-spacing:-1px;margin-bottom:10px}.countdown-card dt{font-size:8px;letter-spacing:.8px}.countdown-status{font-size:10px;margin-top:20px}}
+@media(max-width:359px){.countdown-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:280px;gap:12px}.countdown-card dd{font-size:43px}.countdown-card dt{font-size:9px}.event-countdown h2{font-size:29px}}
+@media(prefers-reduced-motion:reduce){.event-countdown:before{animation:none}.countdown-card{transition:none}.countdown-card:hover{transform:none}}
