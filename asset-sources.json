@@ -37,15 +37,11 @@
   },
   "hero_slides": [
     {
-      "file": "assets/hero/presidential-leadership-clean.jpg",
-      "source": "https://commons.wikimedia.org/wiki/File:Japan-Ghana_Summit_Meeting_on_August_20,_2025.jpg",
-      "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Japan-Ghana_Summit_Meeting_on_August_20%2C_2025.jpg",
-      "creator": "Cabinet Public Relations Office of the Cabinet Secretariat, Japan",
-      "license": "CC BY 4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "description": "John Dramani Mahama and Shigeru Ishiba at the Japan-Ghana summit, 20 August 2025, during TICAD 9. Contextual leadership photograph, not a GEF 2026 event photograph.",
-      "changes": "AI-assisted removal of TICAD/YOKOHAMA/2025 backdrop lettering; JPEG compression; display crop, overlay and zoom.",
-      "attribution": "privacy.html#photo-credits, linked from every footer."
+      "file": "assets/hero/gef-slider3.jpeg",
+      "source": "User-provided sliders/gef-slider3.jpeg",
+      "description": "Panel discussion at the 2025 Ghana Economic Forum; background for the first slide.",
+      "width": 1600,
+      "height": 1066
     },
     {
       "file": "assets/hero/slider2.jpeg",
