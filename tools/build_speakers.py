@@ -40,9 +40,9 @@ for name in ['index.html', 'speakers.html']:
     assert count == 1, name
     page = re.sub(r'(<script type="application/json" id="speaker-profile-data">).*?(</script>)',
                   lambda m: m[1] + data + m[2], page, flags=re.S)
-    page = re.sub(r'\d+ speakers &#183; Ideas that move us forward', f'{len(profiles)} speakers &#183; Ideas that move us forward', page)
     for asset in ['assets/css/speakers.css', 'assets/js/speakers.js']:
         version = hashlib.sha256((ROOT / asset).read_bytes()).hexdigest()[:12]
         page = re.sub(re.escape(asset) + r'(?:\?v=[a-f0-9]+)?', lambda _: asset + '?v=' + version, page)
+    page = re.sub(r'<(?:p|span)[^>]*id="speaker-result-count"[^>]*>.*?</(?:p|span)>', '<span class="sr-only" id="speaker-result-count" aria-live="polite"></span>', page, flags=re.S)
     path.write_text(page, encoding='utf-8')
 print(f'Updated both static showcases with {len(profiles)} speakers.')

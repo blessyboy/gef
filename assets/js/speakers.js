@@ -66,7 +66,7 @@
     filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
     let count = 0;
     cards.forEach(card => { card.hidden = button.dataset.speakerFilter !== 'All' && card.dataset.category !== button.dataset.speakerFilter; if (!card.hidden) count++; });
-    document.getElementById('speaker-result-count').textContent = `${count} ${count === 1 ? 'speaker' : 'speakers'}${button.dataset.speakerFilter === 'All' ? ' · Ideas that move us forward' : ` · ${button.dataset.speakerFilter}`}`;
+    document.getElementById('speaker-result-count').textContent = `${count} speakers shown${button.dataset.speakerFilter === 'All' ? '' : ' in ' + button.dataset.speakerFilter}`;
   }));
 
   if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function' && !reduceMotion.matches) {
