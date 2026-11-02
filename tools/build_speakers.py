@@ -15,7 +15,7 @@ def card(profile):
     p = {key: html.escape(str(value), quote=True) for key, value in profile.items()}
     featured = profile.get('featured', False)
     frame = '' if featured else ' frame-' + p['slug']
-    badge = '<span class="speaker-featured-badge">Featured Speaker</span>' if featured else ''
+    badge = '<span class="speaker-featured-badge">Special Guest</span>' if featured else ''
     organization = p['organization'] or '<span aria-hidden="true">&#8212;</span><span class="sr-only">Organization not provided</span>'
     return (
         f'<article class="speaker speaker-card{" speaker-card-featured" if featured else ""}" '
