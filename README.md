@@ -115,3 +115,11 @@ The previous three-column event strip on the homepage is replaced by a branded c
 The four number cards use fixed grid geometry, reserved number height and tabular numerals to avoid movement during updates. Seconds are not announced repeatedly to screen readers; the completion message is announced politely. Motion effects respect reduced-motion settings, and the countdown has a readable no-JavaScript fallback. Mobile keeps four compact cards, switching to a two-by-two grid on the smallest screens. Source and script URLs are content-versioned. The homepage still includes ticket pricing in the later ticket section.
 
 Five countdown tests cover date/time configuration, clock arithmetic, rollover and delayed ticks, completion, and visitors arriving after the start. All 37 site/API/controller tests passed after this change. Native browser visual checks and layout-shift performance measurement were not performed. Publish `index.html`, `assets/css/countdown.css` and `assets/js/countdown.js` together.
+
+## Homepage sponsors and partners
+
+The homepage includes all 26 partner/sponsor logos from the user-supplied `gef-2026-sponsors.jpeg`, grouped into Strategic Partners (3), Lead Sponsor (1), Knowledge Partners (3), Sponsors (12), and Media Partners (7). The GEF event logo remains in the existing branding and is not counted as a sponsor. The section appears before the registration section and links to the existing Contact page for partnership enquiries.
+
+The original artwork is copied unchanged to `assets/sponsors/gef-2026-sponsors.jpeg`. The source SHA-256 and logo frame coordinates/names are recorded in `assets/sponsors/manifest.json`. CSS frames each logo from the shared artwork; no brand artwork has been regenerated or recoloured. The logo groups are static HTML with accessible image names and work without JavaScript. Official sponsor destination URLs were not supplied, so logos are not given invented links.
+
+Deploy the updated `index.html`, `assets/css/sponsors.css`, and `assets/sponsors/` together. The sponsors stylesheet uses a content-hash query version. Local validation passed for all 9 pages, all 37 existing tests, and sponsor rendering/accessibility at 1440, 1024, 768, 390, and 320px, with all 26 logos loaded and no horizontal overflow. Public deployment has not been performed as part of this local update.

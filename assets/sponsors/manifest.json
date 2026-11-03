@@ -1,0 +1,273 @@
+{
+  "source": "C:\\Users\\User\\Downloads\\gef-2026-sponsors.jpeg",
+  "file": "assets/sponsors/gef-2026-sponsors.jpeg",
+  "width": 1600,
+  "height": 423,
+  "sha256": "2782b1b5ab25817a4d3e5fddeb2465d019f1120e8e4db8e73d77811f9104f687",
+  "groups": [
+    {
+      "id": "lead",
+      "title": "Lead Sponsor",
+      "logos": [
+        {
+          "name": "Fidelity Bank",
+          "frame": [
+            1127,
+            105,
+            244,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "id": "strategic",
+      "title": "Strategic Partners",
+      "logos": [
+        {
+          "name": "Ecobank",
+          "frame": [
+            611,
+            105,
+            150,
+            78
+          ]
+        },
+        {
+          "name": "Caveman",
+          "frame": [
+            790,
+            105,
+            104,
+            82
+          ]
+        },
+        {
+          "name": "Volta River Authority",
+          "frame": [
+            916,
+            119,
+            128,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "title": "Knowledge Partners",
+      "logos": [
+        {
+          "name": "KPMG",
+          "frame": [
+            99,
+            298,
+            81,
+            50
+          ]
+        },
+        {
+          "name": "Arthur Energy Africa",
+          "frame": [
+            201,
+            298,
+            93,
+            56
+          ]
+        },
+        {
+          "name": "EY",
+          "frame": [
+            310,
+            290,
+            67,
+            67
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sponsors",
+      "title": "Sponsors",
+      "logos": [
+        {
+          "name": "Jospong Group of Companies",
+          "frame": [
+            457,
+            270,
+            162,
+            45
+          ]
+        },
+        {
+          "name": "Ghana Stock Exchange",
+          "frame": [
+            633,
+            270,
+            124,
+            48
+          ]
+        },
+        {
+          "name": "Republic Bank",
+          "frame": [
+            773,
+            260,
+            81,
+            63
+          ]
+        },
+        {
+          "name": "TOR",
+          "frame": [
+            859,
+            255,
+            89,
+            65
+          ]
+        },
+        {
+          "name": "GRIDCo",
+          "frame": [
+            958,
+            266,
+            170,
+            56
+          ]
+        },
+        {
+          "name": "MoMo from MTN",
+          "frame": [
+            462,
+            331,
+            96,
+            47
+          ]
+        },
+        {
+          "name": "Edmund's",
+          "frame": [
+            568,
+            322,
+            70,
+            70
+          ]
+        },
+        {
+          "name": "Kalyen",
+          "frame": [
+            652,
+            327,
+            58,
+            59
+          ]
+        },
+        {
+          "name": "The Bank Hospital",
+          "frame": [
+            720,
+            320,
+            149,
+            72
+          ]
+        },
+        {
+          "name": "KGL Group",
+          "frame": [
+            878,
+            333,
+            113,
+            47
+          ]
+        },
+        {
+          "name": "Electricity Company of Ghana",
+          "frame": [
+            1007,
+            327,
+            57,
+            58
+          ]
+        },
+        {
+          "name": "APHRO",
+          "frame": [
+            1080,
+            325,
+            74,
+            81
+          ]
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Media Partners",
+      "logos": [
+        {
+          "name": "Citi 97.3 FM",
+          "frame": [
+            1267,
+            274,
+            121,
+            34
+          ]
+        },
+        {
+          "name": "Asaase Radio 99.5",
+          "frame": [
+            1395,
+            270,
+            101,
+            45
+          ]
+        },
+        {
+          "name": "Metro TV",
+          "frame": [
+            1510,
+            259,
+            53,
+            65
+          ]
+        },
+        {
+          "name": "Joy 99.7 FM",
+          "frame": [
+            1245,
+            326,
+            81,
+            49
+          ]
+        },
+        {
+          "name": "B&FT Online",
+          "frame": [
+            1334,
+            327,
+            94,
+            50
+          ]
+        },
+        {
+          "name": "TV3",
+          "frame": [
+            1437,
+            324,
+            55,
+            52
+          ]
+        },
+        {
+          "name": "Happy 98.9 FM",
+          "frame": [
+            1501,
+            325,
+            85,
+            56
+          ]
+        }
+      ]
+    }
+  ]
+}
